@@ -1,0 +1,26 @@
+{
+  "name": "wiml",
+  "homepage": "https://github.com/kevinah95/where-is-my-lunch",
+  "authors": [
+    "Kevin Hernández Rostrán <kevinah95@gmail.com>"
+  ],
+  "description": "bower dependencies for wiml",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "restful",
+    "restaurant",
+    "system"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.7",
+    "angular-route-styles": "*",
+    "sweetalert2": "~0.2.3"
+  }
+}

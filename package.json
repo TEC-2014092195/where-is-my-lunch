@@ -1,0 +1,31 @@
+{
+  "name": "wiml",
+  "version": "1.0.0",
+  "description": "npm dependencies for wiml",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinah95/where-is-my-lunch.git"
+  },
+  "keywords": [
+    "restful",
+    "restaurant",
+    "system"
+  ],
+  "author": "Kevin Hernández Rostrán <kevinah95@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinah95/where-is-my-lunch/issues"
+  },
+  "homepage": "https://github.com/kevinah95/where-is-my-lunch#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "mysql": "^2.9.0"
+  }
+}
