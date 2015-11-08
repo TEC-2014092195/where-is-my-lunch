@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="wimlApp">
+<html ng-app="wimlApp" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -8,21 +8,28 @@
     <!-- Las 3 tags 'meta' de arriba son necesarias para el diseño web adaptable -->
     <title>Where's My Lunch</title>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
     <!-- AngularJS -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-route-styles/route-styles.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/wow/dist/wow.min.js"></script>
     <!-- use the HTML5 History API [Angular] --> 
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <base href="/">
 </head>
 
-<body ng-view>
+<body ng-view id="page-top">
 
     <script src="_core/app.js"></script>
-    
+    <script src="_core/components/home/homeCtrl.js"></script>
 </body>
 
 </html>

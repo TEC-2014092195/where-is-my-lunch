@@ -21,6 +21,8 @@
     "bootstrap": "~3.3.5",
     "angular-route": "~1.4.7",
     "angular-route-styles": "*",
-    "sweetalert2": "~0.2.3"
+    "sweetalert2": "~0.2.3",
+    "oclazyload": "~1.0.8",
+    "font-awesome": "fontawesome#~4.4.0"
   }
 }
