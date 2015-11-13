@@ -2,6 +2,7 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad) {
 
     $ocLazyLoad.load({
         serie: true, //If true load your files in serie otherwise parallel.
+        cache: false, //reload when go back
         files: [
             'assets/login/js/jquery.backstretch.min.js',
             'assets/login/css/form-elements.css',
