@@ -20,9 +20,10 @@
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
     "angular-route": "~1.4.7",
-    "angular-route-styles": "*",
     "sweetalert2": "~0.2.3",
     "oclazyload": "~1.0.8",
-    "font-awesome": "fontawesome#~4.4.0"
+    "font-awesome": "fontawesome#~4.4.0",
+    "wow": "~1.1.2",
+    "angular-auto-validate": "~1.19.0"
   }
 }
