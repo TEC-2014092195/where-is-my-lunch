@@ -1,28 +1,15 @@
-var app = angular.module('wimlApp', ['ngRoute', 'routeStyles', 'oc.lazyLoad']);
+var app = angular.module('wimlApp', ['ngRoute', 'oc.lazyLoad', 'jcs-autoValidate']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/home', {
         templateUrl: '_core/components/home/homeView.html',
-        controller: 'homeCtrl',
-        resolve: {
-            loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
-                return $ocLazyLoad.load({
-                    serie: true,
-                    files: [
-                        'assets/home/css/animate.min.css',
-                        'assets/home/css/creative.css',
-                        'assets/home/js/jquery.easing.min.js',
-                        'assets/home/js/jquery.fittext.js'
-                    ]
-                });
-            }]
-        }
+        controller: 'homeCtrl'
     });
-    /*$routeProvider.when('/login', {
+    $routeProvider.when('/login', {
         templateUrl: '_core/components/login/loginView.html',
-        css: '_core/components/login/loginStyles.css'
+        controller: 'loginCtrl'
     });
-    $routeProvider.when('/sign_up', {
+    /*$routeProvider.when('/sign_up', {
         templateUrl: '_core/components/sign_up/sign_upView.html',
         css: '_core/components/sign_up/sign_upStyles.css'
     });*/
@@ -30,18 +17,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         redirectTo: '/home'
     });
 
-    
+
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
 }]);
 
-/*app.run(['$rootScope', function ($rootScope) {
-
-       //create a new instance
-       new WOW().init();
-
-    $rootScope.$on('$routeChangeSuccess', function (next, current) {
-        //when the view changes sync wow
-        new WOW().sync();
-    });
-}]);*/
+app.run([
+    'bootstrap3ElementModifier',
+    function(bootstrap3ElementModifier) {
+        bootstrap3ElementModifier.enableValidationStateIcons(true);
+    }
+]);
