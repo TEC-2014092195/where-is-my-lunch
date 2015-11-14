@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menu</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="assets/js/menuCtrl.js"></script>
+    </head>
+
+    <body>
+        <div ng-app="menu">
+            <div ng-controller="menuCtrl" ng-init="init()">
+        <!-- Top content -->
+                <div class="top-content">
+                    <div class="inner-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-16 form-box">
+                                    <div class="form-top">
+                                        <h1>Today's Menu</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 form-box" ng-repeat="post in posts">
+                                	<div class="form-top">
+                                		<div class="form-top-left">
+                                          <div class="col-sm-12 col-sm-offset-2">
+                                              <img class="img-rounded" src="http://www.cedarvalleycheesestore.com/images/home_photos/cedar_valley_cheese_store_wisconsin_cheese.jpg"{{post.photo}}>
+                                          </div>
+                                		</div>
+                                    </div>
+                                    <div class="form-bottom">
+                                        <h2>Dish Name{{post.dishName}}  </h2>
+                                        <h3>Category{{post.category}}  </h3>
+                                        <h3>Ingredients</h3>
+                                        <h3>Price {{post.price}}  </h3>
+                                        <div class="form-group">
+                                          <h3>Quantity:</h3>
+                                          <input type="number" min="0" max="10" class="form-control"> 
+                                          <!-- Hay que cambiar max por la cantidad del ingrediente que tenga menos -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-16 form-box">
+                                    <div class="form-top">
+                                        <div class="col-sm-8 col-sm-offset-4">
+                                            <button type="button" class="btn" ng-click="checkout()"><h2><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Checkout your order</h2></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+</html>

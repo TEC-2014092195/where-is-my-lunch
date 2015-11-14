@@ -5,25 +5,17 @@
 -- HeidiSQL Version:             9.3.0.5009
 -- --------------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
-
 -- Dumping structure for procedure wheresmylunch.AddDish
-DROP PROCEDURE IF EXISTS `AddDish`;
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AddDish`(IN `p_idDish` INT, IN `p_idPayment` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AddDish`(IN `p_idDish` INT, IN `p_idPayment` INT, IN `p_quantity` INT)
 BEGIN
-insert into dishesxpayment (dishesxpayment.idDish,dishesxpayment.idPayment) 
-values(p_idDish,p_idPayment);
+insert into dishesxpayment (dishesxpayment.idDish,dishesxpayment.idPayment,dishesxpayment.quantity) 
+values(p_idDish,p_idPayment,p_quantity);
 END//
 DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.CompareRestaurants
-DROP PROCEDURE IF EXISTS `CompareRestaurants`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CompareRestaurants`(IN `p_iniDate` DATE, IN `p_finDate` DATE)
 BEGIN
@@ -37,11 +29,10 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.CompletePayment
-DROP PROCEDURE IF EXISTS `CompletePayment`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CompletePayment`(IN `p_idPayment` INT)
 BEGIN
-set @total := (select sum(dish.price) from dishesxpayment inner join dish on dishesxpayment.idDish = dish.idDish where dishesxpayment.idPayment = p_idPayment);
+set @total := (select sum(dish.price*dishesxpayment.quantity) from dishesxpayment inner join dish on dishesxpayment.idDish = dish.idDish where dishesxpayment.idPayment = p_idPayment);
 update payment
 set payment.total = @total
 where payment.idPayment = p_idPayment;
@@ -50,7 +41,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.ConsultIngredient
-DROP PROCEDURE IF EXISTS `ConsultIngredient`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultIngredient`(IN `p_idIngredient` INT, IN `p_idRestaurant` INT, IN `p_IniDate` DATE, IN `p_FinDate` INT)
 BEGIN
@@ -71,7 +61,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.DeleteIngredient
-DROP PROCEDURE IF EXISTS `DeleteIngredient`;
 DELIMITER //
 CREATE DEFINER=`root`@`wheresmylunchwheresmylunchlocalhost` PROCEDURE `DeleteIngredient`(IN `p_idIngredient` INT, IN `p_idIRestaurant` INT)
 BEGIN
@@ -82,7 +71,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.DeletePerson
-DROP PROCEDURE IF EXISTS `DeletePerson`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DeletePerson`(IN `p_idPerson` INT)
     DETERMINISTIC
@@ -94,7 +82,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.GetIngredient
-DROP PROCEDURE IF EXISTS `GetIngredient`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetIngredient`(IN `p_ingredientName` VARCHAR(45), IN `p_idRestaurant` INT)
 BEGIN
@@ -106,7 +93,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.GetPerson
-DROP PROCEDURE IF EXISTS `GetPerson`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetPerson`(IN `p_idPerson` INT, IN `p_mail` VARCHAR(100), IN `p_firstname` VARCHAR(45), IN `p_lastname1` VARCHAR(45), IN `p_lastname2` VARCHAR(45), IN `p_phone` INT)
 BEGIN
@@ -119,7 +105,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.InsertIngredient
-DROP PROCEDURE IF EXISTS `InsertIngredient`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertIngredient`(IN `p_ingredientName` VARCHAR(45), IN `p_photo` LONGBLOB, IN `p_idRestaurant` POINT, IN `p_stocks` INT, IN `p_price` INT)
 BEGIN
@@ -147,7 +132,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.InsertPerson
-DROP PROCEDURE IF EXISTS `InsertPerson`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertPerson`(IN `p_idPerson` INT, IN `p_mail` VARCHAR(100), IN `p_password` VARCHAR(45), IN `p_firstname` VARCHAR(45), IN `p_lastname1` VARCHAR(45), IN `p_lastname2` VARCHAR(45), IN `p_phone` INT, IN `p_isAdmin` INT, IN `p_photo` INT)
     DETERMINISTIC
@@ -159,7 +143,6 @@ DELIMITER ;
 
 
 -- Dumping structure for function wheresmylunch.NewPayment
-DROP FUNCTION IF EXISTS `NewPayment`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` FUNCTION `NewPayment`(`p_type` VARCHAR(45), `p_idRestaurant` INT, `p_idPerson` INT) RETURNS int(11)
 BEGIN
@@ -178,7 +161,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.SalesByDate
-DROP PROCEDURE IF EXISTS `SalesByDate`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SalesByDate`(IN `p_date` DATE, IN `p_idRestaurant` INT)
 BEGIN
@@ -190,7 +172,6 @@ DELIMITER ;
 
 
 -- Dumping structure for procedure wheresmylunch.UpdateIngredient
-DROP PROCEDURE IF EXISTS `UpdateIngredient`;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateIngredient`(IN `p_idIngredient` INT, IN `p_ingredientName` VARCHAR(45), IN `p_photo` LONGBLOB, IN `p_idRestaurant` INT, IN `p_price` INT, IN `p_stocks` INT)
     DETERMINISTIC
