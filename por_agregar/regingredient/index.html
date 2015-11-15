@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Add Ingredients</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="assets/js/regingredientCtrl.js"></script>
+    </head>
+
+    <body>
+        <div ng-app="regingredient">
+            <div ng-controller="regingredientCtrl" ng-init="init()">
+        <!-- Top content -->
+                <div class="top-content">
+                    <div class="inner-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3 form-box">
+                                	<div class="form-top">
+                                	   <h1>Register a new ingredient to your restaurant</h1>
+                                    </div>
+                                    <div class="form-bottom">
+                                        <h3>Ingredient Name</h3>
+                                        <input type="text" class="form-control" id="ingredient_name" placeholder="Ingredient Name" required>
+                                        <h3>Units in Stock</h3>
+                                        <input type="text" class="form-control" id="stock" placeholder="Units in Stock" required>
+                                        <h3>Product Price</h3>
+                                        <input type="text" class="form-control" id="price" placeholder="Product Price" required>
+                                        <h3>Ingredient Photo</h3>
+                                        <div class="fileUpload btn btn-primary">
+                                            <span><span style="padding-right:5px" class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>Click to upload</span>
+                                            <input class="upload btn btn-primary" type="file" onchange="previewFile()" id="foto">
+                                        </div>                                        
+                                        <br>
+                                        <div class="col-sm-6">
+                                            <img src="" height="150" class="img-rounded">
+                                        </div>
+                                        <br></br><br></br><br>
+                                        <button type="button" class="btn btn-default" ng-click="registerIngredient()"><span style="padding-right:5px" class="glyphicon glyphicon-ok" aria-hidden="true"></span>Register Ingredient</button>
+                                        <button type="button" class="btn btn-default" ng-click="goBack()"><span style="padding-right:5px" class="glyphicon glyphicon-remove" aria-hidden="true"></span>Go Back</button>
+        		                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+</html>
