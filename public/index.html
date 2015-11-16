@@ -16,17 +16,20 @@
     <!-- AngularJS -->
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <!--  -->
+    <!-- AngularJS Dependencies -->
     <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
-
     <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-
+    <script src="bower_components/ngprogress/build/ngprogress.js"></script>
+    <link rel="stylesheet" href="bower_components/ngprogress/ngProgress.css">
     <script src="bower_components/wow/dist/wow.min.js"></script>
-    <!-- use the HTML5 History API [Angular] --> 
+    
+    
     
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- use the HTML5 History API [Angular] --> 
     <base href="/">
+
 </head>
 
 <body ng-view id="page-top">
@@ -34,6 +37,7 @@
     <script src="_core/app.js"></script>
     <script src="_core/components/home/homeCtrl.js"></script>
     <script src="_core/components/login/loginCtrl.js"></script>
+    <script src="_core/components/sign_up/sign_upCtrl.js"></script>
 </body>
 
 </html>

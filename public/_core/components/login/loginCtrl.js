@@ -1,4 +1,4 @@
-app.controller('loginCtrl', function($scope, $ocLazyLoad) {
+app.controller('loginCtrl', function($scope, $ocLazyLoad,$location) {
 
     $ocLazyLoad.load({
         serie: true, //If true load your files in serie otherwise parallel.
@@ -12,9 +12,12 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad) {
     });
 
     $scope.submit = function() {
-        if ($scope.signupFrm.$valid) {
+        if ($scope.loginFrm.$valid) {
             console.log($scope.model);
         }
+    }
+    $scope.sign_up = function(){
+        $location.path('/sign_up');
     }
 
 

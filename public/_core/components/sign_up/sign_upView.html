@@ -1,0 +1,41 @@
+<div class="container" ng-cloak>
+    <div class="jumbotron myBackground">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form name="signupFrm" novalidate="novalidate" ng-submit="submit();" ng-submit-force="true">
+                    <!-- <legend>Registrarse</legend> -->
+                    <div class="form-group" style="text-align:center;">
+                        
+                        
+                            <!-- <div class="col-md-2 col-md-offset-5"> -->
+                                <img ng-src="{{model.myImage}}" alt="..." class="img-thumbnail">
+                            <div>
+
+                    <label for="file" class="btn btn-default btn-md">
+                        <i class="fa fa-file-image-o"></i> Load Image</label>
+                    <input type="file" id="file" style="display:none">
+                </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="firstname" value="" class="form-control input-lg" placeholder="Name" ng-model="model.username" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname" value="" class="form-control input-lg" placeholder="First Lastname" ng-model="model.lastname" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname2" value="" class="form-control input-lg" placeholder="Second Lastname" ng-model="model.secondlastname" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="form-username" placeholder="Email..." class="form-control input-lg" ng-model="model.email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" ng-model="model.pasword" ng-minlength="3" required/>
+                        </div>
+                        <div class="form-group" style="text-align:center;">
+                        <button class="btn btn-1 btn-1a" href="#/home" type="submit">Create account</button>
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>

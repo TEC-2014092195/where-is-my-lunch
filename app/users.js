@@ -13,7 +13,18 @@ module.exports = function(pool) {
                 connection.release();
             });
         });
+    });
 
+    router.post('/register', function(req, res) {
+        res.send(req.body);
+        /*pool.getConnection(function(err, connection) {
+            connection.query('CALL InsertPerson(?,?,?,?,?,?)', function(err, rows) {
+                if (err) throw err;
+                console.log('Last insert ID:', rows.insertId);
+                res.send(rows[0]);
+                connection.release();
+            });
+        });*/
     });
     return router;
 };
