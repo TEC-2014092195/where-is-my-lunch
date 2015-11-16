@@ -26,6 +26,7 @@
     "wow": "~1.1.2",
     "angular-auto-validate": "~1.19.0",
     "angular-loading-bar": "~0.8.0",
-    "ngprogress": "~1.1.2"
+    "ngprogress": "~1.1.2",
+    "remarkable-bootstrap-notify": "~3.1.3"
   }
 }

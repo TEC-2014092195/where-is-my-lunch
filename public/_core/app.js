@@ -24,8 +24,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.run(function(bootstrap3ElementModifier) {
     bootstrap3ElementModifier.enableValidationStateIcons(true);
-
-    // Do the same with $routeChangeError
 });
 
 app.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
@@ -33,6 +31,7 @@ app.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
         events: true
     });
 }]);
+
 
 function resolve(index, timeout) {
     return {

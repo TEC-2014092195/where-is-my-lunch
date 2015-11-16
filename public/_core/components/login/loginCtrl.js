@@ -1,4 +1,4 @@
-app.controller('loginCtrl', function($scope, $ocLazyLoad,$location) {
+app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http) {
 
     $ocLazyLoad.load({
         serie: true, //If true load your files in serie otherwise parallel.
@@ -11,12 +11,32 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad,$location) {
         ]
     });
 
-    $scope.submit = function() {
+    $scope.login = function() {
         if ($scope.loginFrm.$valid) {
-            console.log($scope.model);
+            
+            $http.post('/api/users/login', $scope.model).then(function(message) {
+                if (message.data == "invalid") {
+                    $.notify({
+                         message: 'Invalid. Try Again.'
+                     }, {
+                         allow_dismiss: true,
+                         delay: 400,
+                         type: 'danger',
+                         animate: {
+                             enter: 'animated fadeInDown',
+                             exit: 'animated fadeOutUp'
+                         }
+                     });
+                    
+                }else{
+                    
+                }
+                //console.log(data);
+            });
         }
     }
-    $scope.sign_up = function(){
+    
+    $scope.sign_up = function() {
         $location.path('/sign_up');
     }
 

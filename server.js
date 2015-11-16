@@ -5,6 +5,7 @@ var bodyParser = require('body-parser'); // pull information from HTML POST (exp
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var mysql = require('mysql');
 
+
 app.use(express.static('public')); // set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({
@@ -20,8 +21,11 @@ var dbconfig = require('./config/database');
 var pool = mysql.createPool(dbconfig.connection);
 
 
+// multer ----
+
+
 // routes ======================================================================
-app.use(require('./app')(pool))
+app.use(require('./app')(pool));
 
 // application -------------------------------------------------------------
 app.get('*', function(req, res) {
