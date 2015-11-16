@@ -4,10 +4,23 @@ app.controller('viewingredientCtrl', ['$scope','$http', '$location', function($s
       $http.get('/api/viewingredient').success(function(data) { $scope.posts = data; console.log(data); });
       console.log("Ejecutado");
   };
-  $scope.edit = function(){
+  $scope.edit = function(ingredient){
   	console.log("Go to edit page");
+    var $promise = $http.post('/api/updingredient', ingredient);
+        $promise.then(function(msg) {
+          console.log(msg.data);
+        });
+    alert("Ingrediente Actualizado");
+    location.reload();
   };
-  $scope.delete = function(){
-  	console.log("Delete this item");
+  $scope.delete = function(ingredient){
+  	var id = ingredient.idIngredient;
+    console.log("Deleting");
+    var $promise = $http.post('/api/delingredient', id);
+        $promise.then(function(msg) {
+          console.log(msg.data);
+        });
+    alert("Ingrediente Borrado");
+    location.reload();
   };
 }]);

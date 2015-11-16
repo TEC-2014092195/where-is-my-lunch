@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ingredients</title>
+        <title>Pendient Payments</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -15,12 +13,12 @@
 		<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-        <script src="assets/js/viewingredientCtrl.js"></script>
+        <script src="assets/js/allpaymentsCtrl.js"></script>
     </head>
 
     <body>
-        <div ng-app="viewingredient">
-            <div ng-controller="viewingredientCtrl" ng-init="init()">
+        <div ng-app="allpayments">
+            <div ng-controller="allpaymentsCtrl" ng-init="init()">
         <!-- Top content -->
                 <div class="top-content">
                     <div class="inner-bg">
@@ -28,23 +26,35 @@
                             <div class="row">
                                 <div class="col-md-16 form-box">
                                     <div class="form-top">
-                                        <h1><span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span> Ingredients</h1>
+                                        <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> System Payments</h1>
                                     </div>
                                 </div>
                             </div>
                             <div class="row" >
-                                <div class="col-md-3 form-box" ng-repeat="post in posts">
+                                <div class="col-md-16 form-box">
                                     <div class="form-top">
-                                          <div class="col-sm-12">
-                                              <img style="margin-top: 10px" class="img-rounded" src="http://nowadaysfood.com/wp-content/uploads/2015/08/Tomatoes_iStock_000005591923Small1.jpg"{{post.photo}}>
-                                          </div>
-                                    </div>
-                                    <div class="form-bottom">
-                                        <h3>{{post.ingredientName}}</h3>
-                                        <h3>Price: {{post.price}}</h3>
-                                        <h3>Quantity: {{post.stock}}</h3>
-                                        <button type="button" class="btn btn-default" ng-click="edit({{post}})">Edit</button>
-                                        <button type="button" class="btn btn-default" ng-click="delete({{post}})">Delete</button>
+                                        <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Type</th>
+                                                <th>Restaurant</th>
+                                                <th>Discount</th>
+                                                <th>Total</th>
+                                                <th>Client</th>
+                                                <th>Date</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr ng-repeat="post in posts">
+                                                <td>{{post.type}}</td>
+                                                <td>{{post.category}}</td>
+                                                <td>{{post.discount}}</td>
+                                                <td>{{post.total}}</td>
+                                                <td>{{post.firstname}}&#32{{post.lastname1}}</td>
+                                                <td>{{post.date}}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
                                     </div>
                                 </div>
                             </div>
