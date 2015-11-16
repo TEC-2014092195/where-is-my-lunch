@@ -1,0 +1,38 @@
+        <div ng-app="profile">
+            <div ng-controller="profileCtrl" ng-init="init()">
+        <!-- Top content -->
+                <div class="top-content">
+                    <div class="inner-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3 form-box">
+                                	<div class="form-top">
+                                		<div class="form-top-left">
+                                      <div class="col-sm-8 col-sm-offset-4 text">
+                                          <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-circle-512.png"{{post[0].photo}} class="img-circle">
+                                      </div>
+                                		</div>
+                                  </div>
+                                    <div class="form-bottom">
+                                        <h3><span class="label label-danger">First Name</span> {{post[0].firstname}}  </h3>
+                                        <h3><span class="label label-danger">First Last Name</span> {{post[0].lastname1}}  </h3>
+                                        <h3><span class="label label-danger">Second Last Name</span> {{post[0].lastname2}} </h3>
+                                        <h3><span class="label label-danger">Mail</span> {{post[0].mail}}  </h3>
+                                        <h3><span class="label label-danger">Phone</span> {{post[0].phone}}  </h3>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <button type="button" class="btn" ng-click="editProfile()">Edit Profile</button>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <button type="button" class="btn" ng-click="goBack()">Return</button>
+                                          </div>
+                                        </div>
+                                        
+        		                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

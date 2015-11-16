@@ -1,0 +1,48 @@
+<div ng-app="pendientpayments">
+            <div ng-controller="pendientpaymentsCtrl" ng-init="init()">
+        <!-- Top content -->
+                <div class="top-content">
+                    <div class="inner-bg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-16 form-box">
+                                    <div class="form-top">
+                                        <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Unconfirmed Payments</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-16 form-box">
+                                    <div class="form-top">
+                                        <table class="table">
+                                            <thead>
+                                              <tr>
+                                                <th>Type</th>
+                                                <th>Restaurant</th>
+                                                <th>Discount</th>
+                                                <th>Total</th>
+                                                <th>Client</th>
+                                                <th>Date</th>
+                                                <th>Confirmation</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr ng-repeat="post in posts">
+                                                <td>{{post.type}}</td>
+                                                <td>{{post.category}}</td>
+                                                <td>{{post.discount}}</td>
+                                                <td>{{post.total}}</td>
+                                                <td>{{post.firstname}}&#32{{post.lastname1}}</td>
+                                                <td>{{post.date}}</td>
+                                                <td><button type="button" class="btn btn-default" ng-click="confirm({{post}})">Confirm</button></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
