@@ -31,5 +31,17 @@ module.exports = function(pool) {
         });
     });
 
+     router.post('/consultingredient', function(req, res) {
+        var d = JSON.parse(req.body.data);
+        pool.getConnection(function(err, connection) {
+            connection.query("CALL AdminConfirmPayment(?,?,?,?)",[d.ingredientName,d.idRestaurant,d.iniDate,d.finDate], function(err, rows) {
+                if (err) throw err;
+                console.log('Last insert ID:', rows.insertId);
+                res.send(rows[0]);
+                connection.release();
+            });
+        });
+    });
+
     return router;
 };

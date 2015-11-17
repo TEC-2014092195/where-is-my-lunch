@@ -1,5 +1,5 @@
 <div ng-app="allpayments">
-            <div ng-controller="allpaymentsCtrl" ng-init="init()">
+            <div ng-controller="allpaymentsCtrl">
         <!-- Top content -->
                 <div class="top-content">
                     <div class="inner-bg">
@@ -7,7 +7,48 @@
                             <div class="row">
                                 <div class="col-md-16 form-box">
                                     <div class="form-top">
-                                        <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> System Payments</h1>
+                                        <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Payments Consult</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-box">
+                                <div class="form-top">
+                                    <div class="col-md-3 ">
+                                        <div class="form-group">
+                                          <label>Ingredient Name:</label>
+                                          <input type="text" class="form-control" id="ingName" ng-model="ingredientName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <div class="form-group">
+                                          <label>Initial Date:</label>
+                                          <input type="date" class="form-control" id="iniDate" ng-model="iniDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <div class="form-group">
+                                          <label>Final Date:</label>
+                                          <input type="date" class="form-control" id="finDate" ng-model="finDate">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 ">
+                                        <div class="form-group">
+                                          <label>Restaurant:</label>
+                                          <select class="form-control" id="sel1" ng-model="idRestaurant">
+                                            <option value="1">1: Vegetarian</option>
+                                            <option value="2">2: Meats</option>
+                                            <option value="3">3: Sea Food</option>
+                                            <option value="4">4: Italian</option>
+                                            <option value="5">5: Chinese</option>
+                                            <option value="6">6: Mix</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 ">
+                                        <div class="form-group">
+                                        <br>
+                                          <button type="date" class="btn" id="finDate" ng-click="submitData()">Submit</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

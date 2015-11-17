@@ -13,8 +13,17 @@ app.controller('allpaymentsCtrl', ['$scope','$http', '$location', function($scop
       ]
   });
 
-  $scope.init = function() {
-      $http.get('/api/allpayments').success(function(data) { $scope.posts = data; console.log(data); });
-      console.log("Ejecutado");
+  $scope.submitData = function() {
+    payment = {};
+    payment.ingredientName = $scope.ingredientName;
+    payment.idRestaurant = parseInt($scope.idRestaurant) || null;
+    payment.iniDate = $scope.iniDate || null;
+    payment.finDate = $scope.finDate || null;
+    console.log("Getting Data");
+    var $promise = $http.post('/api/payments/consultingredient',payment);
+        $promise.then(function(msg) {
+          $scope.posts = msg.data;
+          console.log(msg.data);
+        });
   };
 }]);
