@@ -13,13 +13,15 @@ app.controller('profileCtrl', ['$scope','$http', '$location', function($scope,$o
   });
 
   $scope.init = function() {
-      $http.get('/api/profile').success(function(data) { $scope.posts = data; console.log(data); });
-      console.log("Ejecutado");
+      $scope.post = sessionStorage.user;
   };
   $scope.editProfile = function(){
   	console.log("Edit Profile");
+    $location.path('/editprofile');
   };
   $scope.goBack = function(){
   	console.log("Go Back");
+    $location.path('/home');
+
   };
 }]);

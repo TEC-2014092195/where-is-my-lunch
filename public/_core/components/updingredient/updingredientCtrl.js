@@ -25,7 +25,7 @@ app.controller('updingredientCtrl', ['$scope','$http', '$location', function($sc
       ingredient.stocks = $scope.stocks || null;
       ingredient.price = $scope.price || null;
       console.log(JSON.stringify(ingredient));
-      var $promise = $http.post('/api/updingredient/updingredient', ingredient);
+      var $promise = $http.post('/api/ingredients/updingredient', ingredient);
       $promise.then(function(msg) {
           console.log(msg.data);
       });

@@ -14,7 +14,7 @@ app.controller('viewingredientCtrl', ['$scope','$http', '$location', function($s
 
   $scope.init = function() {
     var restaurant = sessionStorage.getItem(restaurant);
-    var $promise = $http.post('/api/viewingredient/viewingredient', restaurant);
+    var $promise = $http.post('/api/ingredients/getingredients', restaurant);
         $promise.then(function(msg) {
           console.log(msg.data);
           $scope.posts = msg.data;
@@ -34,7 +34,7 @@ app.controller('viewingredientCtrl', ['$scope','$http', '$location', function($s
     obj.idIngredient = ingredient.idIngredient;
     obj.idRestaurant = restaurant.idRestaurant;
     console.log("Deleting");
-    var $promise = $http.post('/api/viewingredient/deleteingredient', obj);
+    var $promise = $http.post('/api/ingredients/deleteingredient', obj);
         $promise.then(function(msg) {
           console.log(msg.data);
         });

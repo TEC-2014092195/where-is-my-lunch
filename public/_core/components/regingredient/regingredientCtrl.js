@@ -46,7 +46,7 @@ app.controller('regingredientCtrl', ['$scope','$http', '$location', function($sc
 	  ingredient.stocks = $scope.stocks;
 	  ingredient.price = $scope.price;
 	  console.log(JSON.stringify(ingredient));
-	  var $promise = $http.post('/api/regingredient/regingredient', ingredient);
+	  var $promise = $http.post('/api/ingredients/regingredient', ingredient);
 	  $promise.then(function(msg) {
 	      console.log(msg.data);
 	  });
