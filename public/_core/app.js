@@ -1,4 +1,4 @@
-var app = angular.module('wimlApp', ['ngRoute', 'oc.lazyLoad', 'jcs-autoValidate', 'ngProgress', 'ngProgressLite']);
+var app = angular.module('wimlApp', ['ngRoute', 'oc.lazyLoad', 'jcs-autoValidate', 'ngProgressLite']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/home', {
@@ -20,6 +20,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $routeProvider.when('/menu', {
         templateUrl: '_core/components/menu/menuView.html',
         controller: 'menuCtrl'
+    });
+    $routeProvider.when('/pendientpayments', {
+        templateUrl: '_core/components/pendientpayments/pendientpaymentsView.html',
+        controller: 'pendientpaymentsCtrl'
+    });
+    $routeProvider.when('/allpayments', {
+        templateUrl: '_core/components/allpayments/allpaymentsView.html',
+        controller: 'allpaymentsCtrl'
+    });
+    $routeProvider.when('/profile', {
+        templateUrl: '_core/components/profile/profileView.html',
+        controller: 'profileCtrl'
     });
 
     $routeProvider.otherwise({

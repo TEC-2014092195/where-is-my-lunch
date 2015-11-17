@@ -23,8 +23,8 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
             var promise = AuthService.login($scope.model);
             promise.then(
                 function(callback) {
-                    // console.log(callback);
-                    if (callback.data == "invalid") {
+                    console.log(callback);
+                    if (callback == "invalid") {
                         $.notify({
                             message: 'Invalid. Try Again.'
                         }, {
@@ -39,6 +39,7 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
 
                     } else {
                         $location.path('main').replace();
+                        history.go(0);
                     }
                 },
                 function(errorCallback) {

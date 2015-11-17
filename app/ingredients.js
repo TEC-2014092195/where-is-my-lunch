@@ -32,17 +32,26 @@ module.exports = function(pool) {
         });
     });
     //view,delete=======
-    router.post('/getingredients', function(req, res) {
-        
-        //console.log(req.body);
-        //res.send(req.body);
+    router.post('/getingredientsbydishesbyrest', function(req, res) {
+        pool.getConnection(function(err, connection) {
+            connection.query("CALL GetIngredientsFromDishesFromRestaurant(?)",[req.body.idRestaurant], function(err, rows) {
+                if (err) throw err;
+                for (var i = 0; i < rows[0].length; i++) {
+                    var base64 = bufferToBase64(new Buffer(rows[0][i].photo));
+                    rows[0][i].photo = base64;
+                };
+                res.send(rows[0]);
+                connection.release();
+            });
+        });
+    });
+    router.post('/getingredientsfromrest', function(req, res) {
         pool.getConnection(function(err, connection) {
             connection.query("CALL GetIngredientsFromRestaurant(?)",[req.body.idRestaurant], function(err, rows) {
                 if (err) throw err;
                 for (var i = 0; i < rows[0].length; i++) {
                     var base64 = bufferToBase64(new Buffer(rows[0][i].photo));
                     rows[0][i].photo = base64;
-                    
                 };
                 res.send(rows[0]);
                 connection.release();

@@ -1,87 +1,87 @@
-<div ng-app="allpayments">
-            <div ng-controller="allpaymentsCtrl">
+<div>
+    <div>
         <!-- Top content -->
-                <div class="top-content">
-                    <div class="inner-bg">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-16 form-box">
-                                    <div class="form-top">
-                                        <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Payments Consult</h1>
-                                    </div>
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-16 form-box">
+                            <div class="form-top">
+                                <h1><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Payments Consult</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-box">
+                        <div class="form-top">
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label>Ingredient Name:</label>
+                                    <input type="text" class="form-control" id="ingName" ng-model="ingredientName">
                                 </div>
                             </div>
-                            <div class="row form-box">
-                                <div class="form-top">
-                                    <div class="col-md-3 ">
-                                        <div class="form-group">
-                                          <label>Ingredient Name:</label>
-                                          <input type="text" class="form-control" id="ingName" ng-model="ingredientName">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 ">
-                                        <div class="form-group">
-                                          <label>Initial Date:</label>
-                                          <input type="date" class="form-control" id="iniDate" ng-model="iniDate">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 ">
-                                        <div class="form-group">
-                                          <label>Final Date:</label>
-                                          <input type="date" class="form-control" id="finDate" ng-model="finDate">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 ">
-                                        <div class="form-group">
-                                          <label>Restaurant:</label>
-                                          <select class="form-control" id="sel1" ng-model="idRestaurant">
-                                            <option value="1">1: Vegetarian</option>
-                                            <option value="2">2: Meats</option>
-                                            <option value="3">3: Sea Food</option>
-                                            <option value="4">4: Italian</option>
-                                            <option value="5">5: Chinese</option>
-                                            <option value="6">6: Mix</option>
-                                          </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1 ">
-                                        <div class="form-group">
-                                        <br>
-                                          <button type="date" class="btn" id="finDate" ng-click="submitData()">Submit</button>
-                                        </div>
-                                    </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label>Initial Date:</label>
+                                    <input type="date" class="form-control" id="iniDate" ng-model="iniDate">
                                 </div>
                             </div>
-                            <div class="row" >
-                                <div class="col-md-16 form-box">
-                                    <div class="form-top">
-                                        <table class="table">
-                                            <thead>
-                                              <tr>
-                                                <th>Type</th>
-                                                <th>Restaurant</th>
-                                                <th>Discount</th>
-                                                <th>Total</th>
-                                                <th>Client</th>
-                                                <th>Date</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody>
-                                              <tr ng-repeat="post in posts">
-                                                <td>{{post.type}}</td>
-                                                <td>{{post.category}}</td>
-                                                <td>{{post.discount}}</td>
-                                                <td>{{post.total}}</td>
-                                                <td>{{post.firstname}}&#32{{post.lastname1}}</td>
-                                                <td>{{post.date}}</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                    </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label>Final Date:</label>
+                                    <input type="date" class="form-control" id="finDate" ng-model="finDate">
                                 </div>
+                            </div>
+                            <div class="col-md-2 ">
+                                <div class="form-group">
+                                    <label>Restaurant:</label>
+                                    <select class="form-control" id="sel1" ng-model="idRestaurant">
+                                        <option value="1">1: Vegetarian</option>
+                                        <option value="2">2: Meats</option>
+                                        <option value="3">3: Sea Food</option>
+                                        <option value="4">4: Italian</option>
+                                        <option value="5">5: Chinese</option>
+                                        <option value="6">6: Mix</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-1 ">
+                                <div class="form-group">
+                                    <br>
+                                    <button type="date" class="btn" id="finDate" ng-click="submitData()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-16 form-box">
+                            <div class="form-top">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Restaurant</th>
+                                            <th>Discount</th>
+                                            <th>Total</th>
+                                            <th>Client</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="post in posts">
+                                            <td>{{post.type}}</td>
+                                            <td>{{post.category}}</td>
+                                            <td>{{post.discount}}</td>
+                                            <td>{{post.total}}</td>
+                                            <td>{{post.firstname}}&#32{{post.lastname1}}</td>
+                                            <td>{{post.date}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>

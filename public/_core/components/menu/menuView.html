@@ -12,22 +12,25 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 form-box" ng-repeat="post in posts">
+                                <div class="col-md-4 form-box" ng-repeat="menu in menus.dishes">
                                 	<div class="form-top">
                                 		<div class="form-top-left">
                                           <div class="col-sm-12 col-sm-offset-2">
-                                              <img class="img-rounded" src="http://www.cedarvalleycheesestore.com/images/home_photos/cedar_valley_cheese_store_wisconsin_cheese.jpg"{{post.photo}}>
+                                              <img class="img-rounded" src="http://www.cedarvalleycheesestore.com/images/home_photos/cedar_valley_cheese_store_wisconsin_cheese.jpg"{{menu.photo}}>
                                           </div>
                                 		</div>
                                     </div>
                                     <div class="form-bottom">
-                                        <h2>Dish Name{{post.dishName}}  </h2>
-                                        <h3>Category{{post.category}}  </h3>
+                                        <h2>Dish Name {{menu.dishName}}  </h2>
+                                        <h3>Category {{menu.category}}  </h3>
                                         <h3>Ingredients</h3>
-                                        <h3>Price {{post.price}}  </h3>
+                                        <p ng-repeat="ingredient in menus.dishes.ingredients  | filter: filterByDish(menu.idDish)">
+                                            {{ingredient.ingredientName}}
+                                        </p>
+                                        <h3>Price {{menu.price}}</h3>
                                         <div class="form-group">
                                           <h3>Quantity:</h3>
-                                          <input type="number" min="0" max="10" class="form-control"> 
+                                          <input type="number" min="0" max="10" ng-model="menu.quantity" class="form-control"> 
                                           <!-- Hay que cambiar max por la cantidad del ingrediente que tenga menos -->
                                         </div>
                                     </div>

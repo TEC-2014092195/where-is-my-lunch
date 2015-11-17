@@ -1,17 +1,11 @@
 app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootScope, $http, $timeout, $location, RestService) {
-
     /*$timeout(function () {
         ngProgressLite.done();
     }, 2000);*/
-
     $scope.init = function() {
         ngProgressLite.start();
     }
     $scope.init()
-
-    /*angular.element(document).ready(function() {
-        
-    });*/
     $scope.model = {
         idRestaurant: 0
     }
@@ -69,9 +63,7 @@ app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootSc
             function(errorCallback) {
                 console.log('failure loading movie', errorCallback);
             });
-        $http.post('/api/spacial/infoRestaurant', $scope.model).then(function(callback) {
-
-        });
+        
     }
     var $active = false;
     $scope.collapseShow = function() {
