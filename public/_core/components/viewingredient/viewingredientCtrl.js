@@ -13,22 +13,28 @@ app.controller('viewingredientCtrl', ['$scope','$http', '$location', function($s
   });
 
   $scope.init = function() {
-      $http.get('/api/viewingredient').success(function(data) { $scope.posts = data; console.log(data); });
-      console.log("Ejecutado");
-  };
-  $scope.edit = function(ingredient){
-  	console.log("Go to edit page");
-    var $promise = $http.post('/api/updingredient', ingredient);
+    var restaurant = sessionStorage.getItem(restaurant);
+    var $promise = $http.post('/api/viewingredient/viewingredient', restaurant);
         $promise.then(function(msg) {
           console.log(msg.data);
+          $scope.posts = msg.data;
         });
-    alert("Ingrediente Actualizado");
-    location.reload();
+    console.log("Ejecutado");
   };
+
+  $scope.edit = function(ingredient){
+    sessionStorage.setItem('ingredient',ingredient);
+    $location.path('/updingredient');
+  	console.log("Go to edit page");
+  };
+  
   $scope.delete = function(ingredient){
-  	var id = ingredient.idIngredient;
+    var restaurant = sessionStorage.getItem('restaurant');
+    var obj = {};
+    obj.idIngredient = ingredient.idIngredient;
+    obj.idRestaurant = restaurant.idRestaurant;
     console.log("Deleting");
-    var $promise = $http.post('/api/delingredient', id);
+    var $promise = $http.post('/api/viewingredient/deleteingredient', obj);
         $promise.then(function(msg) {
           console.log(msg.data);
         });
