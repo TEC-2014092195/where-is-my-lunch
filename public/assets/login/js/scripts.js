@@ -1,10 +1,10 @@
 
-jQuery(document).ready(function() {
+function load() {
 	
     /*
         Fullscreen background
     */
-    $.backstretch("assets/login/img/backgrounds/1.jpg");
+    //$.backstretch("assets/login/img/backgrounds/1.jpg");
     
     /*
         Form validation
@@ -28,4 +28,5 @@ jQuery(document).ready(function() {
     });
     
     
-});
+}
+load();

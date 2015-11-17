@@ -1,15 +1,10 @@
-app.controller('homeCtrl', function($ocLazyLoad, ngProgressFactory,$scope,$timeout) {
+app.controller('homeCtrl', function($ocLazyLoad, ngProgressLite,$scope,$timeout) {
     
-      $scope.progressbar = ngProgressFactory.createInstance(); 
-      $scope.progressbar.start();
-    
-$timeout(function () {
-                    $timeout(function () {
-                       $scope.progressbar.complete();
-                    }, 0);
-                }, 0);
-    
-        
+      
+    $scope.init = function(){
+      ngProgressLite.start();
+      }
+    $scope.init()
     
     $ocLazyLoad.load({
         serie: true, //If true load your files in serie otherwise parallel.
@@ -21,5 +16,8 @@ $timeout(function () {
             'assets/home/js/jquery.fittext.js',
             'assets/home/js/creative.js'
         ]
-    });
+    }).then(function(){
+            ngProgressLite.done();            
+            
+        });
 });

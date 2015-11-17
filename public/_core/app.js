@@ -1,4 +1,4 @@
-var app = angular.module('wimlApp', ['ngRoute', 'oc.lazyLoad', 'jcs-autoValidate', 'ngProgress']);
+var app = angular.module('wimlApp', ['ngRoute', 'oc.lazyLoad', 'jcs-autoValidate', 'ngProgress','ngProgressLite']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     $routeProvider.when('/home', {
@@ -12,6 +12,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $routeProvider.when('/sign_up', {
         templateUrl: '_core/components/sign_up/sign_upView.html',
         controller: 'sign_upCtrl'
+
+    });
+    $routeProvider.when('/main', {
+        templateUrl: '_core/components/main/mainView.html',
+        controller: 'mainCtrl'
     });
     $routeProvider.otherwise({
         redirectTo: '/home'
@@ -31,6 +36,10 @@ app.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
         events: true
     });
 }]);
+
+app.config(['ngProgressLiteProvider', function (ngProgressLiteProvider) {
+        ngProgressLiteProvider.settings.speed = 1500;
+    }]);
 
 
 function resolve(index, timeout) {

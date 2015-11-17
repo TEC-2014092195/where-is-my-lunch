@@ -1,7 +1,7 @@
 app.controller('sign_upCtrl', function($scope, $ocLazyLoad, $http) {
 
     $ocLazyLoad.load({
-        serie: true, //If true load your files in serie otherwise parallel.
+        serie: false, //If true load your files in serie otherwise parallel.
         cache: false, //reload when go back
         files: [
             'assets/sign_up/css/sign_upStyles.css'

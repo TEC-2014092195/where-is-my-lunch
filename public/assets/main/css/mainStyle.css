@@ -1,0 +1,11 @@
+body {
+    background: url("");
+    background-color: #70C4B4;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
