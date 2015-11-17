@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootScope, $http, $timeout) {
+app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootScope, $http, $timeout, $location, RestService) {
 
     /*$timeout(function () {
         ngProgressLite.done();
@@ -44,25 +44,33 @@ app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootSc
     });
     var indexColor = 0;
     $scope.getInfoRestaurant = function() {
-        $http.post('/api/spacial/infoRestaurant', $scope.model).then(function(callback) {
-            $scope.collapseHide();
-            indexColor = $scope.model.idRestaurant;
+        var promise = RestService.searchRest($scope.model);
+        promise.then(
+            function(callback) {
+                $scope.collapseHide();
+                indexColor = $scope.model.idRestaurant;
 
-            if (indexColor == 1) {
-                indexColor = 2;
-            }else if (indexColor == 2){
-                indexColor = 1;
-            }
-            $timeout(function() {
+                if (indexColor == 1) {
+                    indexColor = 2;
+                } else if (indexColor == 2) {
+                    indexColor = 1;
+                }
                 $timeout(function() {
-                    $scope.restaurant = callback.data;
-
-                    $scope.restaurant.color = window.colorsDark[indexColor - 1];
-                    console.log($scope.restaurant.color);
-                    $scope.collapseShow();
-                    //$scope.$apply();
+                    $timeout(function() {
+                        $scope.restaurant = callback;
+                        console.log(callback);
+                        $scope.restaurant.color = window.colorsDark[indexColor - 1];
+                        console.log($scope.restaurant.color);
+                        $scope.collapseShow();
+                        //$scope.$apply();
+                    }, 300);
                 }, 300);
-            }, 300);
+            },
+            function(errorCallback) {
+                console.log('failure loading movie', errorCallback);
+            });
+        $http.post('/api/spacial/infoRestaurant', $scope.model).then(function(callback) {
+
         });
     }
     var $active = false;
@@ -71,6 +79,9 @@ app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootSc
     }
     $scope.collapseHide = function() {
         $("#collapseExample").collapse('hide');
+    }
+    $scope.showMenu = function() {
+        $location.path('/menu');
     }
 
 });

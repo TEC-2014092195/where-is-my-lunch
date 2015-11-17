@@ -1,4 +1,4 @@
-app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngProgressLite) {
+app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngProgressLite, AuthService) {
 
     $scope.init = function() {
         ngProgressLite.start();
@@ -20,8 +20,34 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
 
     $scope.login = function() {
         if ($scope.loginFrm.$valid) {
+            var promise = AuthService.login($scope.model);
+            promise.then(
+                function(callback) {
+                    // console.log(callback);
+                    if (callback.data == "invalid") {
+                        $.notify({
+                            message: 'Invalid. Try Again.'
+                        }, {
+                            allow_dismiss: true,
+                            delay: 400,
+                            type: 'danger',
+                            animate: {
+                                enter: 'animated fadeInDown',
+                                exit: 'animated fadeOutUp'
+                            }
+                        });
 
-            $http.post('/api/users/login', $scope.model).then(function(message) {
+                    } else {
+                        $location.path('main').replace();
+                    }
+                },
+                function(errorCallback) {
+                    console.log('Error: ', errorCallback);
+                });
+            /*$http.post('/api/users/login', $scope.model).then(function(message) {
+                console.log();
+                console.log(message);
+
                 if (message.data == "invalid") {
                     $.notify({
                         message: 'Invalid. Try Again.'
@@ -39,7 +65,7 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
                     $location.path('main').replace();
                 }
                 //console.log(data);
-            });
+            });*/
         }
     }
 

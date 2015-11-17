@@ -52,7 +52,7 @@ var textR = [];
 var colors = ["#F1654C","#9DCD82","#64B0BB","#E4C972","#BB9A73","#F1F5E1"];
 var colorsDark = ["#BA3722","#7DA665","#488189","#BAA459","#7A6348","#72746D"];
 var images = ["r1.png","r2.png","r3.png","r4.png","r5.png","r6.png"];
-var restaurants = ["CARNES","VEGETARIANO","MARISCOS","ITALIANO","CHINO","MIXTO"];
+var restaurants = ["MEATS","VEGETARIAN","SEA FOOD","ITALIAN","CHINESE","MIX"];
 var $idRestaurant = undefined;
 for (var i = 0; i < avenues.length; i++) {
   linesAvenues.push(prototypeavenue.clone({

@@ -6,6 +6,12 @@ body {
     color: #fff;
     line-height: 30px;
     text-align: center;
+    background-image: url(../img/backgrounds/1.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 strong { font-weight: 500; }

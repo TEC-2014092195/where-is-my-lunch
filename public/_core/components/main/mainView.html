@@ -13,16 +13,21 @@
             <canvas id="canvas" width="540" height="540"></canvas>
         </div>
         <div class="col-md-6">
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseExample" >
                 <div class="well">
                     <address>
                         <strong>{{restaurant.Name}}</strong>
                         <br> <span class="label label-default" ng-style="{'background-color': restaurant.color}">Category</span> {{restaurant.Category}}
                         <br> <span class="label label-info" style="background-color: #444">Schedule</span> {{restaurant.Schedule}}
-                        <br> Street {{restaurant.Street}}
-                        <br> Avenue {{restaurant.Avenue}}
-                        <br> Phone {{restaurant.Phone}}
+                        <br> <span class="label label-default" ng-style="{'background-color': restaurant.color}">Street</span> {{restaurant.Street}}
+                        <br> <span class="label label-info" style="background-color: #444">Avenue</span> {{restaurant.Avenue}}
+                        <br> <span class="label label-default" ng-style="{'background-color': restaurant.color}">Phone</span> {{restaurant.Phone}}
                     </address>
+                    <div class="row" style="text-align:center">
+                    <button type="button" class="btn btn-default btn-sm" style="color: #fff" ng-style="{'background-color': restaurant.color}" ng-click="showMenu()">View Menu</button>
+                    <button type="button" class="btn btn-default btn-sm" style="background-color: #444; color: #fff">Admin</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>
