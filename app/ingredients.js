@@ -9,7 +9,7 @@ module.exports = function(pool) {
     var router = express.Router();
     //Register===============
     router.post('/regingredient', upload.single('avatar'), function(req, res) {
-        var d = JSON.parse(req.body.data);
+        var d = req.body;
         pool.getConnection(function(err, connection) {
             connection.query("CALL InsertIngredient(?,?,?,?,?)",[d.ingredientName,d.photo,d.idRestaurant,d.stocks,d.price], function(err, rows) {
                 if (err) throw err;

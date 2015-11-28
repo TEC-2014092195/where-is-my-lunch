@@ -5,18 +5,19 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
     }
     $scope.init();
     ngProgressLite.done();
-    /*$ocLazyLoad.load({
+    $ocLazyLoad.load({
         serie: true, //If true load your files in serie otherwise parallel.
         cache: false, //reload when go back
         files: [
-            //'assets/login/js/jquery.backstretch.min.js',
+            'bower_components/normalize-css/normalize.css',
             'assets/login/css/form-elements.css',
             'assets/login/css/style.css',
-            'assets/login/js/scripts.js' //angular-form
+            'assets/login/js/jquery.backstretch.min.js',
+            'assets/login/js/scripts.js'
         ]
     }).then(function() {
         ngProgressLite.done();
-    });;*/
+    });
 
     $scope.login = function() {
         if ($scope.loginFrm.$valid) {
@@ -72,6 +73,7 @@ app.controller('loginCtrl', function($scope, $ocLazyLoad, $location, $http, ngPr
 
     $scope.sign_up = function() {
         $location.path('/sign_up');
+        history.go(0);
     }
 
 

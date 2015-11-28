@@ -11,9 +11,10 @@ app.controller('mainCtrl', function($ocLazyLoad, $scope, ngProgressLite, $rootSc
     }
 
     $ocLazyLoad.load({
-        serie: false, //If true load your files in serie otherwise parallel.
+        serie: true, //If true load your files in serie otherwise parallel.
         cache: false, //reload when go back
         files: [
+            'bower_components/normalize-css/normalize.css',
             'assets/main/css/mainStyle.css',
             'assets/main/js/script.js'
         ]

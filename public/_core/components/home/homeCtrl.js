@@ -10,6 +10,7 @@ app.controller('homeCtrl', function($ocLazyLoad, ngProgressLite, $scope, $timeou
         serie: true, //If true load your files in serie otherwise parallel.
         cache: false, //reload when go back
         files: [
+            'bower_components/normalize-css/normalize.css',
             'assets/home/css/animate.min.css',
             'assets/home/css/creative.css',
             'assets/home/js/jquery.easing.min.js',

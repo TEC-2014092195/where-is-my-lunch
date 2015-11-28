@@ -19,13 +19,13 @@ function ValidateFields() {
         };
 
 
-app.controller('regingredientCtrl', ['$scope','$http', '$location', function($scope,$ocLazyLoad, $http, $location) {
+app.controller('regingredientCtrl',function($scope,$ocLazyLoad, $http, $location) {
 	$ocLazyLoad.load({
 	    serie: true, //If true load your files in serie otherwise parallel.
 	    cache: false, //reload when go back
 	    files: [
-	        'assets/regingredient/js/jquery.backstretch.min.js',
-	        'assets/regingredient/js/jquery-1.11.1.min.js',
+	        //'assets/regingredient/js/jquery.backstretch.min.js',
+	        //'assets/regingredient/js/jquery-1.11.1.min.js',
 	        'assets/regingredient/js/placeholder.js',
 	        'assets/regingredient/js/scripts.js',
 	        'assets/regingredient/css/form-elements.css',
@@ -62,7 +62,7 @@ app.controller('regingredientCtrl', ['$scope','$http', '$location', function($sc
 		  $location.path('/home');
 	};
 
-}]);
+});
 
 function previewFile() {
     var preview = document.querySelector('img');

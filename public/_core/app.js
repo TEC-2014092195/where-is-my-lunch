@@ -33,6 +33,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: '_core/components/profile/profileView.html',
         controller: 'profileCtrl'
     });
+    $routeProvider.when('/regingredient', {
+        templateUrl: '_core/components/regingredient/regingredientView.html',
+        controller: 'regingredientCtrl'
+    });
 
     $routeProvider.otherwise({
         redirectTo: '/home'
@@ -47,15 +51,40 @@ app.run(function(bootstrap3ElementModifier) {
     bootstrap3ElementModifier.enableValidationStateIcons(true);
 });
 
-app.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
-    $ocLazyLoadProvider.config({
-        events: true
-    });
-}]);
+
 
 app.config(['ngProgressLiteProvider', function(ngProgressLiteProvider) {
     ngProgressLiteProvider.settings.speed = 1500;
 }]);
+app.run(function($rootScope, $route, $location,$window){
+   //Bind the `$locationChangeSuccess` event on the rootScope, so that we dont need to 
+   //bind in induvidual controllers.
+
+   $rootScope.$on('$locationChangeSuccess', function() {
+        $rootScope.actualLocation = $location.path();
+    });        
+
+   $rootScope.$watch(function () {return $location.path()}, function (newLocation, oldLocation) {
+        if($rootScope.actualLocation === newLocation) {
+            $window.location.reload(); 
+            // alert('Why did you use history back?');
+        }
+    });
+});
+
+app.run(function($rootScope,$ocLazyLoad) {
+    $rootScope.$on('$routeChangeSuccess', function(event, to, toParams, from, fromParams) {
+        $ocLazyLoad.load({
+            cache: false, //reload when go back
+            files: [
+                'bower_components/normalize-css/normalize.css'
+            ]
+        });
+        console.log('Previous state:'+from)
+        console.log('Current state:'+to)
+        
+    });
+});
 
 
 
